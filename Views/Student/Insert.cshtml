@@ -1,0 +1,41 @@
+﻿@using ExternalPracFin.Models
+@model StudentModel
+@{
+    ViewBag.Title = "Insert";
+}
+
+@using (Html.BeginForm("InsertTheStudent", "Student"))
+{
+    <div class="form-group">
+        <label for="a">Name</label>
+        @Html.TextBoxFor(item => item.FirstName, new { Class = "w-100 form-control" })
+        @Html.ValidationMessageFor(item => item.FirstName, "", new { Class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Course</label>
+        @Html.TextBoxFor(item => item.Course, new { Class = "w-100 form-control" })
+        @Html.ValidationMessageFor(item => item.Course, "", new { Class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1" >Year</label>
+        @Html.TextBoxFor(item => item.Year, new { Class = "w-100 form-control" })
+        @Html.ValidationMessageFor(item => item.Year, "", new { Class = "text-danger" })
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Gender</label>
+        <br />
+        <label for="exampleInputEmail1">Male</label>
+        @Html.RadioButtonFor(item => item.Gender, "M")
+        <label for="exampleInputEmail1">Female</label>
+        @Html.RadioButtonFor(item => item.Gender, "F")
+        @Html.ValidationMessageFor(item => item.Gender, "", new { Class = "text-danger" })
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-info w-100">Insert</button>
+}
+
+
+
